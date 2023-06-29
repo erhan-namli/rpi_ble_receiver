@@ -44,33 +44,71 @@ class Config_BLE(Ui_MainWindow, QMainWindow, QWidget):
 
         self.ui.ble_scan_devices_button.clicked.connect(self.scan_now)
 
-        timer = QtCore.QTimer()
+        self.ui.ble_disconnect_button.clicked.connect(self.handle_disconnect)
+
+        timer = QtCore.QTimer(self)
         timer.timeout.connect(self.call_function)  # Connect the timer to the function
     
         # Start the timer with a one-second interval
-        timer.start(100)  # 1000 milliseconds = 1 second
+        timer.start(2000)  # 1000 milliseconds = 1 second
 
         self.connect_device = JobThread(self.conn_device)
 
         self.ui.ble_connect_button.clicked.connect(self.connect_ble_function)
 
-        self.current_device = "9C:9C:1F:C7:F2:6A"
+        self.current_device = ""
 
-        self.current_UUID = "6E400002-B5A3-F393-E0A9-E50E24DCCA9E"
+        self.current_UUID = ""
 
+        self.ui.ble_devices_table_widget.currentItemChanged.connect(self.table_device_choose_function)
+
+        self.ui.ble_characteristics_table_widget.currentItemChanged.connect(self.table_char_choose_function)
+
+        self.ui.ble_uuid_notify.clicked.connect(self.start_notify)
+        
         self.incoming_crc_v = ""
 
         self.calculated_crc_v = ""
 
         self.DATA_PACKET_SIZE = 41
 
+        self.CHUNK_SIZE = 12
+
         self.ble_speed_byte = 0
 
         self.ble_sps = 0
 
+        self.device_notify_flag = False
+
+    def start_notify(self):
+
+        self.device_notify_flag = True
+
+    def table_char_choose_function(self, item):
+
+        if item is not None:
+            value = item.text()
+            print("Clicked item value:", value)
+
+            self.ui.ble_uuid.setText(value)
+
+            self.current_UUID = value
+
+    def table_device_choose_function(self, item):
+
+        if item is not None:
+            value = item.text()
+            print("Clicked item value:", value)
+
+            self.ui.ble_name.setText(value)
+
+            self.current_device = value
+
     def call_function(self):
 
-        self.ui.sps_label.setText("Erhann")
+        print(self.ble_speed_byte)
+
+        self.ui.sps_label.setText(str(self.ble_speed_byte*self.CHUNK_SIZE))
 
 
     def connect_ble_function(self):
@@ -81,6 +119,7 @@ class Config_BLE(Ui_MainWindow, QMainWindow, QWidget):
 
     def disconnect_ble_function(self):
         pass
+
 
     def scan_now(self):
         """ Get BLE address and device name from available BLE advertisement
@@ -123,6 +162,33 @@ class Config_BLE(Ui_MainWindow, QMainWindow, QWidget):
 
             self.ui.ble_devices_table_widget.setItem(row, 0, key_item)
             self.ui.ble_devices_table_widget.setItem(row, 1, value_item)
+
+    def populate_table_uuid(self, services):
+
+        self.ui.ble_uuids_table_widget.setRowCount(3)
+
+        for row, service in enumerate(services):
+
+            uuid_item = QTableWidgetItem(str(service.uuid))
+            self.ui.ble_uuids_table_widget.setItem(row, 0, uuid_item)
+
+        # TO DO
+        # - services
+
+        pass
+
+    def populate_table_characteristics(self, services):
+
+        self.ui.ble_characteristics_table_widget.setRowCount(10)
+
+        for service in services:
+            print("Service UUID:", service.uuid)
+            print("Characteristics:")
+            for row, char in enumerate(service.characteristics):
+                print("\tCharacteristic UUID:", char.uuid)
+                char_item = QTableWidgetItem(str(char.uuid))
+                self.ui.ble_characteristics_table_widget.setItem(row, 0, char_item)
+                print("\tProperties:", char.properties)
 
     def calculate_incoming_crc(self, data):
 
@@ -181,24 +247,21 @@ class Config_BLE(Ui_MainWindow, QMainWindow, QWidget):
 
                 crc_check = self.calculate_incoming_crc(data)
 
-                print("Incoming CRC HEX", hex(crc_incoming))
+                #print("Incoming CRC HEX", hex(crc_incoming))
 
                 if(crc_check != crc_incoming):
 
-                    print("CRC Check Failed")
+                    self.ui.crc_check_box.setChecked(False)
 
                     print("INCOMING CRC", crc_incoming, "Calculated CRC", crc_check)
                     
                 elif(crc_check == crc_incoming):
 
-                    print("CRC Verified")
-
-                    self.incoming_crc_v = crc_incoming
-
-                    self.calculated_crc_v = crc_check
+                    self.ui.crc_check_box.setChecked(True)
 
 
-    def handle_disconnect(_: BleakClient, self):
+
+    def handle_disconnect(self, _: BleakClient):
         print("Device was disconnected, goodbye.")
         # cancelling all tasks effectively ends the program
         for task in asyncio.all_tasks():
@@ -216,7 +279,7 @@ class Config_BLE(Ui_MainWindow, QMainWindow, QWidget):
 
         try:
 
-            print(f"Messages per second: {message_count / elapsed_time:.2f}")
+            #print(f"Messages per second: {message_count / elapsed_time:.2f}")
 
             speed = message_count / elapsed_time
 
@@ -224,17 +287,11 @@ class Config_BLE(Ui_MainWindow, QMainWindow, QWidget):
 
             speed = 0
 
-        self.ui.ble_speed_byte = round(speed)
+        self.ble_speed_byte = round(speed)
 
         self.ui.ble_speed_label.setText(str(round(speed)))
 
         self.parse_incoming_data(data)
-
-        # self.ui.incoming_crc_line_edit.setText(str(hex(self.incoming_crc_v)))
-
-        # self.ui.calculated_crc_line_edit.setText(str(hex(self.calculated_crc_v)))
-
-        #print("received:", data)
         
     def handle_rx(sender: BleakGATTCharacteristic, data: bytearray, self):
 
@@ -250,12 +307,28 @@ class Config_BLE(Ui_MainWindow, QMainWindow, QWidget):
 
                 # Use Pybleak to access GATT
                 async with BleakClient(address, loop=loop, disconnected_callback=self.handle_disconnect) as client:
-                    ## 1
-                    # await client.start_notify(UART_TX_CHAR_UUID, self.handle_rx)
-                    # print("Connected, start typing and press ENTER")
+                    
+                    services = await client.get_services()
 
-                    await client.start_notify("6E400003-B5A3-F393-E0A9-E50E24DCCA9E", self.notification_handler)
-                    await asyncio.sleep(40)  # Listen for 10 seconds
+                    self.populate_table_uuid(services)
+
+                    self.populate_table_characteristics(services)
+
+                    while True:
+
+                        if self.device_notify_flag == True:
+                            print("START NOTIFY")
+                            await client.start_notify(self.current_UUID, self.notification_handler)
+                            await asyncio.sleep(int(self.ui.ble_connection_time_combo_box.currentText()))
+
+                        else:
+                            
+                            print("NO NOTIFY")
+                            pass
+
+                        #await asyncio.sleep(int(self.ui.ble_connection_time_combo_box.currentText()))  # Listen for 10 seconds
+
+                    #await asyncio.sleep(5)  # Listen for 10 seconds
                     #await client.stop_notify("6E400003-B5A3-F393-E0A9-E50E24DCCA9E")          
 
                     # nus = client.services.get_service(UART_SERVICE_UUID)
@@ -263,8 +336,6 @@ class Config_BLE(Ui_MainWindow, QMainWindow, QWidget):
                     
                     # for s in sliced("data", rx_char.max_write_without_response_size):
                     #     await client.write_gatt_char(rx_char, s)
-
-                    time.sleep(0.2)
 
             loop = asyncio.new_event_loop()
             self.flag = False

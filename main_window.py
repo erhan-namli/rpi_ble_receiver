@@ -14,12 +14,12 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
-        MainWindow.resize(937, 620)
+        MainWindow.resize(1219, 851)
         MainWindow.setWindowTitle("")
         self.centralwidget = QtWidgets.QWidget(MainWindow)
         self.centralwidget.setObjectName("centralwidget")
         self.ble_retransmission_button = QtWidgets.QPushButton(self.centralwidget)
-        self.ble_retransmission_button.setGeometry(QtCore.QRect(680, 530, 111, 31))
+        self.ble_retransmission_button.setGeometry(QtCore.QRect(970, 710, 111, 31))
         self.ble_retransmission_button.setStyleSheet(" QPushButton {\n"
 "     \n"
 "        \n"
@@ -38,7 +38,7 @@ class Ui_MainWindow(object):
 "    }")
         self.ble_retransmission_button.setObjectName("ble_retransmission_button")
         self.label_6 = QtWidgets.QLabel(self.centralwidget)
-        self.label_6.setGeometry(QtCore.QRect(690, 50, 151, 41))
+        self.label_6.setGeometry(QtCore.QRect(920, 60, 151, 41))
         font = QtGui.QFont()
         font.setFamily("Arial Nova Cond Light")
         font.setPointSize(19)
@@ -46,7 +46,7 @@ class Ui_MainWindow(object):
         self.label_6.setFont(font)
         self.label_6.setObjectName("label_6")
         self.ble_tx_uuid = QtWidgets.QLineEdit(self.centralwidget)
-        self.ble_tx_uuid.setGeometry(QtCore.QRect(160, 200, 221, 22))
+        self.ble_tx_uuid.setGeometry(QtCore.QRect(160, 210, 221, 31))
         self.ble_tx_uuid.setStyleSheet("QLineEdit {\n"
 "    background-color: #f5f5f5; /* Default background color */\n"
 "    border: 2px solid #cccccc;\n"
@@ -72,7 +72,7 @@ class Ui_MainWindow(object):
 "}")
         self.ble_tx_uuid.setObjectName("ble_tx_uuid")
         self.ble_uuid = QtWidgets.QLineEdit(self.centralwidget)
-        self.ble_uuid.setGeometry(QtCore.QRect(160, 140, 221, 22))
+        self.ble_uuid.setGeometry(QtCore.QRect(160, 131, 221, 31))
         self.ble_uuid.setStyleSheet("QLineEdit {\n"
 "    background-color: #f5f5f5; /* Default background color */\n"
 "    border: 2px solid #cccccc;\n"
@@ -99,7 +99,7 @@ class Ui_MainWindow(object):
         self.ble_uuid.setObjectName("ble_uuid")
         self.ble_log_text_edit = QtWidgets.QPlainTextEdit(self.centralwidget)
         self.ble_log_text_edit.setEnabled(False)
-        self.ble_log_text_edit.setGeometry(QtCore.QRect(620, 100, 271, 111))
+        self.ble_log_text_edit.setGeometry(QtCore.QRect(850, 110, 271, 111))
         self.ble_log_text_edit.setStyleSheet("QPlainTextEdit {\n"
 "    background-color: #f5f5f5; /* Default background color */\n"
 "    border: 5px solid #cccccc;\n"
@@ -125,7 +125,7 @@ class Ui_MainWindow(object):
 "}")
         self.ble_log_text_edit.setObjectName("ble_log_text_edit")
         self.ble_disconnect_button = QtWidgets.QPushButton(self.centralwidget)
-        self.ble_disconnect_button.setGeometry(QtCore.QRect(430, 190, 121, 31))
+        self.ble_disconnect_button.setGeometry(QtCore.QRect(540, 200, 121, 31))
         self.ble_disconnect_button.setStyleSheet(" QPushButton {\n"
 "        \n"
 "        background-color: rgb(255, 85, 0);\n"
@@ -143,7 +143,7 @@ class Ui_MainWindow(object):
 "    }")
         self.ble_disconnect_button.setObjectName("ble_disconnect_button")
         self.ble_name = QtWidgets.QLineEdit(self.centralwidget)
-        self.ble_name.setGeometry(QtCore.QRect(160, 110, 221, 22))
+        self.ble_name.setGeometry(QtCore.QRect(160, 90, 221, 31))
         self.ble_name.setStyleSheet("QLineEdit {\n"
 "    background-color: #f5f5f5; /* Default background color */\n"
 "    border: 2px solid #cccccc;\n"
@@ -169,7 +169,7 @@ class Ui_MainWindow(object):
 "}")
         self.ble_name.setObjectName("ble_name")
         self.ble_rx_uuid = QtWidgets.QLineEdit(self.centralwidget)
-        self.ble_rx_uuid.setGeometry(QtCore.QRect(160, 170, 221, 22))
+        self.ble_rx_uuid.setGeometry(QtCore.QRect(160, 170, 221, 31))
         self.ble_rx_uuid.setStyleSheet("QLineEdit {\n"
 "    background-color: #f5f5f5; /* Default background color */\n"
 "    border: 2px solid #cccccc;\n"
@@ -195,97 +195,15 @@ class Ui_MainWindow(object):
 "}")
         self.ble_rx_uuid.setObjectName("ble_rx_uuid")
         self.label_9 = QtWidgets.QLabel(self.centralwidget)
-        self.label_9.setGeometry(QtCore.QRect(640, 240, 241, 41))
+        self.label_9.setGeometry(QtCore.QRect(880, 260, 241, 41))
         font = QtGui.QFont()
         font.setFamily("Arial Nova Cond Light")
         font.setPointSize(19)
         font.setUnderline(True)
         self.label_9.setFont(font)
         self.label_9.setObjectName("label_9")
-        self.ble_connect_button = QtWidgets.QPushButton(self.centralwidget)
-        self.ble_connect_button.setGeometry(QtCore.QRect(430, 110, 121, 31))
-        palette = QtGui.QPalette()
-        brush = QtGui.QBrush(QtGui.QColor(255, 255, 255))
-        brush.setStyle(QtCore.Qt.SolidPattern)
-        palette.setBrush(QtGui.QPalette.Active, QtGui.QPalette.WindowText, brush)
-        brush = QtGui.QBrush(QtGui.QColor(0, 170, 127))
-        brush.setStyle(QtCore.Qt.SolidPattern)
-        palette.setBrush(QtGui.QPalette.Active, QtGui.QPalette.Button, brush)
-        brush = QtGui.QBrush(QtGui.QColor(255, 255, 255))
-        brush.setStyle(QtCore.Qt.SolidPattern)
-        palette.setBrush(QtGui.QPalette.Active, QtGui.QPalette.Text, brush)
-        brush = QtGui.QBrush(QtGui.QColor(255, 255, 255))
-        brush.setStyle(QtCore.Qt.SolidPattern)
-        palette.setBrush(QtGui.QPalette.Active, QtGui.QPalette.ButtonText, brush)
-        brush = QtGui.QBrush(QtGui.QColor(0, 170, 127))
-        brush.setStyle(QtCore.Qt.SolidPattern)
-        palette.setBrush(QtGui.QPalette.Active, QtGui.QPalette.Base, brush)
-        brush = QtGui.QBrush(QtGui.QColor(0, 170, 127))
-        brush.setStyle(QtCore.Qt.SolidPattern)
-        palette.setBrush(QtGui.QPalette.Active, QtGui.QPalette.Window, brush)
-        brush = QtGui.QBrush(QtGui.QColor(255, 255, 255, 128))
-        brush.setStyle(QtCore.Qt.NoBrush)
-        palette.setBrush(QtGui.QPalette.Active, QtGui.QPalette.PlaceholderText, brush)
-        brush = QtGui.QBrush(QtGui.QColor(255, 255, 255))
-        brush.setStyle(QtCore.Qt.SolidPattern)
-        palette.setBrush(QtGui.QPalette.Inactive, QtGui.QPalette.WindowText, brush)
-        brush = QtGui.QBrush(QtGui.QColor(0, 170, 127))
-        brush.setStyle(QtCore.Qt.SolidPattern)
-        palette.setBrush(QtGui.QPalette.Inactive, QtGui.QPalette.Button, brush)
-        brush = QtGui.QBrush(QtGui.QColor(255, 255, 255))
-        brush.setStyle(QtCore.Qt.SolidPattern)
-        palette.setBrush(QtGui.QPalette.Inactive, QtGui.QPalette.Text, brush)
-        brush = QtGui.QBrush(QtGui.QColor(255, 255, 255))
-        brush.setStyle(QtCore.Qt.SolidPattern)
-        palette.setBrush(QtGui.QPalette.Inactive, QtGui.QPalette.ButtonText, brush)
-        brush = QtGui.QBrush(QtGui.QColor(0, 170, 127))
-        brush.setStyle(QtCore.Qt.SolidPattern)
-        palette.setBrush(QtGui.QPalette.Inactive, QtGui.QPalette.Base, brush)
-        brush = QtGui.QBrush(QtGui.QColor(0, 170, 127))
-        brush.setStyle(QtCore.Qt.SolidPattern)
-        palette.setBrush(QtGui.QPalette.Inactive, QtGui.QPalette.Window, brush)
-        brush = QtGui.QBrush(QtGui.QColor(255, 255, 255, 128))
-        brush.setStyle(QtCore.Qt.NoBrush)
-        palette.setBrush(QtGui.QPalette.Inactive, QtGui.QPalette.PlaceholderText, brush)
-        brush = QtGui.QBrush(QtGui.QColor(255, 255, 255))
-        brush.setStyle(QtCore.Qt.SolidPattern)
-        palette.setBrush(QtGui.QPalette.Disabled, QtGui.QPalette.WindowText, brush)
-        brush = QtGui.QBrush(QtGui.QColor(0, 170, 127))
-        brush.setStyle(QtCore.Qt.SolidPattern)
-        palette.setBrush(QtGui.QPalette.Disabled, QtGui.QPalette.Button, brush)
-        brush = QtGui.QBrush(QtGui.QColor(255, 255, 255))
-        brush.setStyle(QtCore.Qt.SolidPattern)
-        palette.setBrush(QtGui.QPalette.Disabled, QtGui.QPalette.Text, brush)
-        brush = QtGui.QBrush(QtGui.QColor(255, 255, 255))
-        brush.setStyle(QtCore.Qt.SolidPattern)
-        palette.setBrush(QtGui.QPalette.Disabled, QtGui.QPalette.ButtonText, brush)
-        brush = QtGui.QBrush(QtGui.QColor(0, 170, 127))
-        brush.setStyle(QtCore.Qt.SolidPattern)
-        palette.setBrush(QtGui.QPalette.Disabled, QtGui.QPalette.Base, brush)
-        brush = QtGui.QBrush(QtGui.QColor(0, 170, 127))
-        brush.setStyle(QtCore.Qt.SolidPattern)
-        palette.setBrush(QtGui.QPalette.Disabled, QtGui.QPalette.Window, brush)
-        brush = QtGui.QBrush(QtGui.QColor(255, 255, 255, 128))
-        brush.setStyle(QtCore.Qt.NoBrush)
-        palette.setBrush(QtGui.QPalette.Disabled, QtGui.QPalette.PlaceholderText, brush)
-        self.ble_connect_button.setPalette(palette)
-        self.ble_connect_button.setStyleSheet(" QPushButton {\n"
-"     \n"
-"        background-color: rgb(0, 170, 127);\n"
-"        padding: 5px;\n"
-"        color:  #ffffff;\n"
-"        font: 25 10pt \"Arial Nova Cond Light\";\n"
-"    }\n"
-"\n"
-"    QPushButton:pressed {\n"
-"        background-color: #ffcc00;\n"
-"        border-color: #ff9900;\n"
-"        color: #ffffff;\n"
-"        padding: 7px;\n"
-"    }")
-        self.ble_connect_button.setObjectName("ble_connect_button")
         self.label_5 = QtWidgets.QLabel(self.centralwidget)
-        self.label_5.setGeometry(QtCore.QRect(150, 40, 131, 61))
+        self.label_5.setGeometry(QtCore.QRect(140, 20, 131, 61))
         font = QtGui.QFont()
         font.setFamily("Arial Nova Cond Light")
         font.setPointSize(19)
@@ -293,7 +211,7 @@ class Ui_MainWindow(object):
         self.label_5.setFont(font)
         self.label_5.setObjectName("label_5")
         self.layoutWidget = QtWidgets.QWidget(self.centralwidget)
-        self.layoutWidget.setGeometry(QtCore.QRect(10, 110, 135, 111))
+        self.layoutWidget.setGeometry(QtCore.QRect(10, 90, 135, 151))
         self.layoutWidget.setObjectName("layoutWidget")
         self.verticalLayout = QtWidgets.QVBoxLayout(self.layoutWidget)
         self.verticalLayout.setContentsMargins(0, 0, 0, 0)
@@ -344,7 +262,7 @@ class Ui_MainWindow(object):
         self.verticalLayout.addWidget(self.label_4)
         self.ble_corrupted_text_edit = QtWidgets.QPlainTextEdit(self.centralwidget)
         self.ble_corrupted_text_edit.setEnabled(False)
-        self.ble_corrupted_text_edit.setGeometry(QtCore.QRect(610, 290, 281, 141))
+        self.ble_corrupted_text_edit.setGeometry(QtCore.QRect(850, 310, 281, 141))
         self.ble_corrupted_text_edit.setStyleSheet("QPlainTextEdit {\n"
 "    background-color: #f5f5f5; /* Default background color */\n"
 "    border: 5px solid #cccccc;\n"
@@ -370,7 +288,7 @@ class Ui_MainWindow(object):
 "}")
         self.ble_corrupted_text_edit.setObjectName("ble_corrupted_text_edit")
         self.ble_scan_devices_button = QtWidgets.QPushButton(self.centralwidget)
-        self.ble_scan_devices_button.setGeometry(QtCore.QRect(140, 480, 121, 31))
+        self.ble_scan_devices_button.setGeometry(QtCore.QRect(140, 500, 121, 31))
         palette = QtGui.QPalette()
         brush = QtGui.QBrush(QtGui.QColor(255, 255, 255))
         brush.setStyle(QtCore.Qt.SolidPattern)
@@ -452,7 +370,7 @@ class Ui_MainWindow(object):
 "    }")
         self.ble_scan_devices_button.setObjectName("ble_scan_devices_button")
         self.label_10 = QtWidgets.QLabel(self.centralwidget)
-        self.label_10.setGeometry(QtCore.QRect(80, 240, 241, 41))
+        self.label_10.setGeometry(QtCore.QRect(80, 270, 241, 31))
         font = QtGui.QFont()
         font.setFamily("Arial Nova Cond Light")
         font.setPointSize(19)
@@ -461,7 +379,7 @@ class Ui_MainWindow(object):
         self.label_10.setAlignment(QtCore.Qt.AlignCenter)
         self.label_10.setObjectName("label_10")
         self.ble_devices_table_widget = QtWidgets.QTableWidget(self.centralwidget)
-        self.ble_devices_table_widget.setGeometry(QtCore.QRect(20, 290, 361, 181))
+        self.ble_devices_table_widget.setGeometry(QtCore.QRect(20, 310, 361, 181))
         self.ble_devices_table_widget.setStyleSheet("QTableWidget {\n"
 "    background-color: #f5f5f5; /* Default background color */\n"
 "    border: 5px solid #cccccc;\n"
@@ -493,7 +411,7 @@ class Ui_MainWindow(object):
         item = QtWidgets.QTableWidgetItem()
         self.ble_devices_table_widget.setHorizontalHeaderItem(1, item)
         self.layoutWidget1 = QtWidgets.QWidget(self.centralwidget)
-        self.layoutWidget1.setGeometry(QtCore.QRect(600, 440, 291, 27))
+        self.layoutWidget1.setGeometry(QtCore.QRect(860, 460, 291, 27))
         self.layoutWidget1.setObjectName("layoutWidget1")
         self.horizontalLayout = QtWidgets.QHBoxLayout(self.layoutWidget1)
         self.horizontalLayout.setContentsMargins(0, 0, 0, 0)
@@ -510,8 +428,104 @@ class Ui_MainWindow(object):
         self.ble_speed_label.setText("")
         self.ble_speed_label.setObjectName("ble_speed_label")
         self.horizontalLayout.addWidget(self.ble_speed_label)
+        self.ble_uuids_table_widget = QtWidgets.QTableWidget(self.centralwidget)
+        self.ble_uuids_table_widget.setEnabled(False)
+        self.ble_uuids_table_widget.setGeometry(QtCore.QRect(420, 310, 401, 181))
+        self.ble_uuids_table_widget.setStyleSheet("QTableWidget {\n"
+"    background-color: #f5f5f5; /* Default background color */\n"
+"    border: 5px solid #cccccc;\n"
+"    border-radius: 5px;\n"
+"    padding: 5px;\n"
+"    font: 25 10pt \"Arial Nova Cond Light\";\n"
+"    \n"
+"    color: #333333; /* Default text color */\n"
+"}\n"
+"\n"
+"QTableWidget:focus {\n"
+"    border-color: #ff9900; /* Border color when focused */\n"
+"}\n"
+"\n"
+"QTableWidget::placeholder {\n"
+"    color: #999999; /* Placeholder text color */\n"
+"}\n"
+"\n"
+"QTableWidget::hover {\n"
+"    background-color: #ffffff; /* Background color when hovered */\n"
+"    border-color: #ff9900; /* Border color when hovered */\n"
+"    color: #333333; /* Text color when hovered */\n"
+"}")
+        self.ble_uuids_table_widget.setObjectName("ble_uuids_table_widget")
+        self.ble_uuids_table_widget.setColumnCount(1)
+        self.ble_uuids_table_widget.setRowCount(0)
+        item = QtWidgets.QTableWidgetItem()
+        self.ble_uuids_table_widget.setHorizontalHeaderItem(0, item)
+        self.label_14 = QtWidgets.QLabel(self.centralwidget)
+        self.label_14.setGeometry(QtCore.QRect(490, 270, 241, 31))
+        font = QtGui.QFont()
+        font.setFamily("Arial Nova Cond Light")
+        font.setPointSize(19)
+        font.setUnderline(True)
+        self.label_14.setFont(font)
+        self.label_14.setAlignment(QtCore.Qt.AlignCenter)
+        self.label_14.setObjectName("label_14")
+        self.ble_uuid_notify = QtWidgets.QPushButton(self.centralwidget)
+        self.ble_uuid_notify.setGeometry(QtCore.QRect(390, 130, 93, 28))
+        self.ble_uuid_notify.setStyleSheet(" QPushButton {\n"
+"     \n"
+"        background-color: rgb(85, 170, 255);\n"
+"        padding: 5px;\n"
+"        color:  #ffffff;\n"
+"        font: 25 10pt \"Arial Nova Cond Light\";\n"
+"    }\n"
+"\n"
+"    QPushButton:pressed {\n"
+"        background-color: #ffcc00;\n"
+"        border-color: #ff9900;\n"
+"        color: #ffffff;\n"
+"        padding: 7px;\n"
+"    }")
+        self.ble_uuid_notify.setObjectName("ble_uuid_notify")
+        self.ble_characteristics_table_widget = QtWidgets.QTableWidget(self.centralwidget)
+        self.ble_characteristics_table_widget.setGeometry(QtCore.QRect(420, 560, 401, 181))
+        self.ble_characteristics_table_widget.setStyleSheet("QTableWidget {\n"
+"    background-color: #f5f5f5; /* Default background color */\n"
+"    border: 5px solid #cccccc;\n"
+"    border-radius: 5px;\n"
+"    padding: 5px;\n"
+"    font: 25 10pt \"Arial Nova Cond Light\";\n"
+"    \n"
+"    color: #333333; /* Default text color */\n"
+"}\n"
+"\n"
+"QTableWidget:focus {\n"
+"    border-color: #ff9900; /* Border color when focused */\n"
+"}\n"
+"\n"
+"QTableWidget::placeholder {\n"
+"    color: #999999; /* Placeholder text color */\n"
+"}\n"
+"\n"
+"QTableWidget::hover {\n"
+"    background-color: #ffffff; /* Background color when hovered */\n"
+"    border-color: #ff9900; /* Border color when hovered */\n"
+"    color: #333333; /* Text color when hovered */\n"
+"}")
+        self.ble_characteristics_table_widget.setObjectName("ble_characteristics_table_widget")
+        self.ble_characteristics_table_widget.setColumnCount(1)
+        self.ble_characteristics_table_widget.setRowCount(0)
+        item = QtWidgets.QTableWidgetItem()
+        self.ble_characteristics_table_widget.setHorizontalHeaderItem(0, item)
+        self.label_15 = QtWidgets.QLabel(self.centralwidget)
+        self.label_15.setGeometry(QtCore.QRect(500, 510, 241, 31))
+        font = QtGui.QFont()
+        font.setFamily("Arial Nova Cond Light")
+        font.setPointSize(19)
+        font.setUnderline(True)
+        self.label_15.setFont(font)
+        self.label_15.setAlignment(QtCore.Qt.AlignCenter)
+        self.label_15.setObjectName("label_15")
         self.widget = QtWidgets.QWidget(self.centralwidget)
-        self.widget.setGeometry(QtCore.QRect(370, 510, 215, 24))
+        self.widget.setGeometry(QtCore.QRect(910, 650, 215, 24))
         self.widget.setObjectName("widget")
         self.horizontalLayout_2 = QtWidgets.QHBoxLayout(self.widget)
         self.horizontalLayout_2.setContentsMargins(0, 0, 0, 0)
@@ -531,7 +545,7 @@ class Ui_MainWindow(object):
         self.label_11.setObjectName("label_11")
         self.horizontalLayout_2.addWidget(self.label_11)
         self.widget1 = QtWidgets.QWidget(self.centralwidget)
-        self.widget1.setGeometry(QtCore.QRect(380, 540, 201, 26))
+        self.widget1.setGeometry(QtCore.QRect(920, 680, 201, 26))
         self.widget1.setObjectName("widget1")
         self.horizontalLayout_3 = QtWidgets.QHBoxLayout(self.widget1)
         self.horizontalLayout_3.setContentsMargins(0, 0, 0, 0)
@@ -542,8 +556,15 @@ class Ui_MainWindow(object):
         self.calculated_crc_line_edit = QtWidgets.QLineEdit(self.widget1)
         self.calculated_crc_line_edit.setObjectName("calculated_crc_line_edit")
         self.horizontalLayout_3.addWidget(self.calculated_crc_line_edit)
+        self.crc_check_box = QtWidgets.QCheckBox(self.centralwidget)
+        self.crc_check_box.setGeometry(QtCore.QRect(1040, 530, 101, 20))
+        font = QtGui.QFont()
+        font.setFamily("Arial Nova Cond Light")
+        font.setPointSize(10)
+        self.crc_check_box.setFont(font)
+        self.crc_check_box.setObjectName("crc_check_box")
         self.widget2 = QtWidgets.QWidget(self.centralwidget)
-        self.widget2.setGeometry(QtCore.QRect(770, 470, 121, 27))
+        self.widget2.setGeometry(QtCore.QRect(1030, 490, 121, 27))
         self.widget2.setObjectName("widget2")
         self.horizontalLayout_4 = QtWidgets.QHBoxLayout(self.widget2)
         self.horizontalLayout_4.setContentsMargins(0, 0, 0, 0)
@@ -559,9 +580,115 @@ class Ui_MainWindow(object):
         self.sps_label.setText("")
         self.sps_label.setObjectName("sps_label")
         self.horizontalLayout_4.addWidget(self.sps_label)
+        self.widget3 = QtWidgets.QWidget(self.centralwidget)
+        self.widget3.setGeometry(QtCore.QRect(510, 120, 190, 66))
+        self.widget3.setObjectName("widget3")
+        self.verticalLayout_2 = QtWidgets.QVBoxLayout(self.widget3)
+        self.verticalLayout_2.setContentsMargins(0, 0, 0, 0)
+        self.verticalLayout_2.setObjectName("verticalLayout_2")
+        self.horizontalLayout_5 = QtWidgets.QHBoxLayout()
+        self.horizontalLayout_5.setObjectName("horizontalLayout_5")
+        self.label_13 = QtWidgets.QLabel(self.widget3)
+        font = QtGui.QFont()
+        font.setFamily("Arial Nova Cond Light")
+        font.setPointSize(10)
+        self.label_13.setFont(font)
+        self.label_13.setObjectName("label_13")
+        self.horizontalLayout_5.addWidget(self.label_13)
+        self.ble_connection_time_combo_box = QtWidgets.QComboBox(self.widget3)
+        self.ble_connection_time_combo_box.setObjectName("ble_connection_time_combo_box")
+        self.ble_connection_time_combo_box.addItem("")
+        self.ble_connection_time_combo_box.addItem("")
+        self.ble_connection_time_combo_box.addItem("")
+        self.ble_connection_time_combo_box.addItem("")
+        self.ble_connection_time_combo_box.addItem("")
+        self.horizontalLayout_5.addWidget(self.ble_connection_time_combo_box)
+        self.verticalLayout_2.addLayout(self.horizontalLayout_5)
+        self.ble_connect_button = QtWidgets.QPushButton(self.widget3)
+        palette = QtGui.QPalette()
+        brush = QtGui.QBrush(QtGui.QColor(255, 255, 255))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Active, QtGui.QPalette.WindowText, brush)
+        brush = QtGui.QBrush(QtGui.QColor(0, 170, 127))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Active, QtGui.QPalette.Button, brush)
+        brush = QtGui.QBrush(QtGui.QColor(255, 255, 255))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Active, QtGui.QPalette.Text, brush)
+        brush = QtGui.QBrush(QtGui.QColor(255, 255, 255))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Active, QtGui.QPalette.ButtonText, brush)
+        brush = QtGui.QBrush(QtGui.QColor(0, 170, 127))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Active, QtGui.QPalette.Base, brush)
+        brush = QtGui.QBrush(QtGui.QColor(0, 170, 127))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Active, QtGui.QPalette.Window, brush)
+        brush = QtGui.QBrush(QtGui.QColor(255, 255, 255, 128))
+        brush.setStyle(QtCore.Qt.NoBrush)
+        palette.setBrush(QtGui.QPalette.Active, QtGui.QPalette.PlaceholderText, brush)
+        brush = QtGui.QBrush(QtGui.QColor(255, 255, 255))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Inactive, QtGui.QPalette.WindowText, brush)
+        brush = QtGui.QBrush(QtGui.QColor(0, 170, 127))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Inactive, QtGui.QPalette.Button, brush)
+        brush = QtGui.QBrush(QtGui.QColor(255, 255, 255))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Inactive, QtGui.QPalette.Text, brush)
+        brush = QtGui.QBrush(QtGui.QColor(255, 255, 255))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Inactive, QtGui.QPalette.ButtonText, brush)
+        brush = QtGui.QBrush(QtGui.QColor(0, 170, 127))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Inactive, QtGui.QPalette.Base, brush)
+        brush = QtGui.QBrush(QtGui.QColor(0, 170, 127))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Inactive, QtGui.QPalette.Window, brush)
+        brush = QtGui.QBrush(QtGui.QColor(255, 255, 255, 128))
+        brush.setStyle(QtCore.Qt.NoBrush)
+        palette.setBrush(QtGui.QPalette.Inactive, QtGui.QPalette.PlaceholderText, brush)
+        brush = QtGui.QBrush(QtGui.QColor(255, 255, 255))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Disabled, QtGui.QPalette.WindowText, brush)
+        brush = QtGui.QBrush(QtGui.QColor(0, 170, 127))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Disabled, QtGui.QPalette.Button, brush)
+        brush = QtGui.QBrush(QtGui.QColor(255, 255, 255))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Disabled, QtGui.QPalette.Text, brush)
+        brush = QtGui.QBrush(QtGui.QColor(255, 255, 255))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Disabled, QtGui.QPalette.ButtonText, brush)
+        brush = QtGui.QBrush(QtGui.QColor(0, 170, 127))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Disabled, QtGui.QPalette.Base, brush)
+        brush = QtGui.QBrush(QtGui.QColor(0, 170, 127))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Disabled, QtGui.QPalette.Window, brush)
+        brush = QtGui.QBrush(QtGui.QColor(255, 255, 255, 128))
+        brush.setStyle(QtCore.Qt.NoBrush)
+        palette.setBrush(QtGui.QPalette.Disabled, QtGui.QPalette.PlaceholderText, brush)
+        self.ble_connect_button.setPalette(palette)
+        self.ble_connect_button.setStyleSheet(" QPushButton {\n"
+"     \n"
+"        background-color: rgb(0, 170, 127);\n"
+"        padding: 5px;\n"
+"        color:  #ffffff;\n"
+"        font: 25 10pt \"Arial Nova Cond Light\";\n"
+"    }\n"
+"\n"
+"    QPushButton:pressed {\n"
+"        background-color: #ffcc00;\n"
+"        border-color: #ff9900;\n"
+"        color: #ffffff;\n"
+"        padding: 7px;\n"
+"    }")
+        self.ble_connect_button.setObjectName("ble_connect_button")
+        self.verticalLayout_2.addWidget(self.ble_connect_button)
         MainWindow.setCentralWidget(self.centralwidget)
         self.menubar = QtWidgets.QMenuBar(MainWindow)
-        self.menubar.setGeometry(QtCore.QRect(0, 0, 937, 26))
+        self.menubar.setGeometry(QtCore.QRect(0, 0, 1219, 26))
         self.menubar.setObjectName("menubar")
         MainWindow.setMenuBar(self.menubar)
         self.statusbar = QtWidgets.QStatusBar(MainWindow)
@@ -577,7 +704,6 @@ class Ui_MainWindow(object):
         self.label_6.setText(_translate("MainWindow", "Message Log"))
         self.ble_disconnect_button.setText(_translate("MainWindow", "BLE Disconnect"))
         self.label_9.setText(_translate("MainWindow", "Corrupted Messages"))
-        self.ble_connect_button.setText(_translate("MainWindow", "BLE Connect"))
         self.label_5.setText(_translate("MainWindow", "Credentials"))
         self.label.setText(_translate("MainWindow", "Device Name"))
         self.label_2.setText(_translate("MainWindow", "UART Service UUID"))
@@ -590,9 +716,24 @@ class Ui_MainWindow(object):
         item = self.ble_devices_table_widget.horizontalHeaderItem(1)
         item.setText(_translate("MainWindow", "Value"))
         self.label_7.setText(_translate("MainWindow", "Number of Incoming Messages p/s :"))
+        item = self.ble_uuids_table_widget.horizontalHeaderItem(0)
+        item.setText(_translate("MainWindow", "Services"))
+        self.label_14.setText(_translate("MainWindow", "Services"))
+        self.ble_uuid_notify.setText(_translate("MainWindow", "Notify"))
+        item = self.ble_characteristics_table_widget.horizontalHeaderItem(0)
+        item.setText(_translate("MainWindow", "Characteristics"))
+        self.label_15.setText(_translate("MainWindow", "Characteristics"))
         self.label_8.setText(_translate("MainWindow", "Incoming CRC |"))
         self.label_11.setText(_translate("MainWindow", "Calculated CRC"))
+        self.crc_check_box.setText(_translate("MainWindow", "CRC Check"))
         self.label_12.setText(_translate("MainWindow", "Sample p/s :"))
+        self.label_13.setText(_translate("MainWindow", "Connection Time(s) :"))
+        self.ble_connection_time_combo_box.setItemText(0, _translate("MainWindow", "100"))
+        self.ble_connection_time_combo_box.setItemText(1, _translate("MainWindow", "200"))
+        self.ble_connection_time_combo_box.setItemText(2, _translate("MainWindow", "300"))
+        self.ble_connection_time_combo_box.setItemText(3, _translate("MainWindow", "1000"))
+        self.ble_connection_time_combo_box.setItemText(4, _translate("MainWindow", "2000"))
+        self.ble_connect_button.setText(_translate("MainWindow", "BLE Connect"))
 
 
 if __name__ == "__main__":
